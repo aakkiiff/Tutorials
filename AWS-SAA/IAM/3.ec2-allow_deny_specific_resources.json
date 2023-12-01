@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "ec2:RunInstances",
+        "Resource": [
+          "arn:aws:ec2:your-region:your-account-id:instance/instance-id-1",
+          "arn:aws:ec2:your-region:your-account-id:instance/instance-id-2",
+          "arn:aws:ec2:your-region:your-account-id:instance/instance-id-3"
+        ]
+      },
+      {
+        "Effect": "Deny",
+        "Action": "ec2:TerminateInstances",
+        "Resource": [
+          "arn:aws:ec2:your-region:your-account-id:instance/instance-id-1",
+          "arn:aws:ec2:your-region:your-account-id:instance/instance-id-2",
+          "arn:aws:ec2:your-region:your-account-id:instance/instance-id-3"
+        ]
+      }
+    ]
+  }
+  
