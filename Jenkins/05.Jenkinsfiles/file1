@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Check out source code') {
+            steps {
+                echo 'APP aaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+                echo 'Cleaning workspace'
+                echo 'Pulling code from GitHub'
+            }
+        }
+
+        stage('Building code') {
+            steps {
+                echo 'Building the Node app'
+            }
+        }
+
+        stage('Docker build + Docker push') {
+            steps {
+                echo 'Building Docker file 1'
+                echo 'Building Docker file 2'
+                echo 'Docker login'
+                echo 'Pushing Docker file'
+                echo 'Docker logout'
+            }
+        }
+    }
+}
