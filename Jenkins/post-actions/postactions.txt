@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {    
+                    // Intentional failure
+                    error 'This stage fails on purpose'
+            }
+        }
+    }
+    post {
+        failure {
+            // on failure 
+            echo 'Hello World'
+        }
+    }
+}
