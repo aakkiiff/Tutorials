@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Check out source code') {
+            steps {
+                echo 'Cleaning workspace'
+                echo 'Pulling code from GitHub'
+            }
+        }
+
+        stage('Building code') {
+            steps {
+                echo 'Building the Node app'
+            }
+        }
+
+        stage('Docker build + Docker push') {
+            steps {
+                script {
+                    parallel(
+                        "Step 1": {
+                            
+                            echo "1"
+                        },
+                        "Step 2": {
+                            
+                            echo "2"
+                        }
+                    )
+                }
+            }
+        }
+    }
+}
