@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'uname')]) {
+                 sh "echo ${pass} | docker login -u ${uname} --password-stdin"
+                 sh "docker logout"
+}
+            }
+        }
+    }
+}
