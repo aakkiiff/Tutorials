@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('1st stage') {
+            steps {
+                sh 'pwd'
+            }
+        }
+    }
+    post {
+        success {
+            script {
+                slackSend(channel: "test",color: 'good', message: "my-first-pipeline-slack passed successfully")
+
+            }
+        }
+    }
+}
