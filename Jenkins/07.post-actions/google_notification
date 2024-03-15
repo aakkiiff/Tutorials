@@ -13,12 +13,12 @@ pipeline {
         }
     post{
         success {
-            withCredentials([string(credentialsId: 'google_token', variable: 'toekn')]) {
+            withCredentials([string(credentialsId: 'google_chat_token', variable: 'token')]) {
             hangoutsNotify(
-            message: "PIPELINE: $env.JOB_NAME has completed SUCCESSFULLY.<br>BUILD NUMBER: $env.BUILD_NUMBER,
-            token: env.toekn
+            message: "PIPELINE: $env.JOB_NAME has completed SUCCESSFULLY.<br>BUILD NUMBER: $env.BUILD_NUMBER",
+            token: env.token
             )
-        }
+            }
         }
     }
 }

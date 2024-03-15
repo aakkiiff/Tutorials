@@ -10,9 +10,13 @@ pipeline {
         }
     }
     post {
+        success {
+            // on failure 
+            emailext body: 'success', subject: 'success', to: 'pomab50867@cmheia.com'
+        }
         failure {
             // on failure 
-            echo 'Hello World'
+            emailext body: 'pipeline failed', subject: 'failed', to: 'pomab50867@cmheia.com'
         }
     }
 }
