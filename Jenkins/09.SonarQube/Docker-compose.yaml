@@ -1,6 +1,0 @@
-version: '3.8'
-services:
-  sonarqube:
-    image: sonarqube:latest
-    ports:
-      - "9000:9000"
