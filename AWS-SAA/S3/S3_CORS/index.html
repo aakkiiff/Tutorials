@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>cloudops school</title>
+    </head>
+    <body>
+        <h1>this is cloudops school</h1>
+        <p>these are the same origin content</p>
+    </body>
+
+    <!--aws s3 CORS demo -->
+    <div id="tofetch"></div> 
+    <script>
+        var tofetch = document.getElementById("tofetch");
+
+        fetch('http://ecternal21buckeetttttttttt.s3-website.ap-south-1.amazonaws.com/extra-page.html')
+        .then((response) => { 
+            return response.text();
+        })
+        .then((html) => {
+            tofetch.innerHTML = html     
+        });
+    </script>
+</html>
+
