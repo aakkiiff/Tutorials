@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hecker-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hecker
+  template:
+    metadata:
+      labels:
+        app: hecker
+    spec:
+      containers:
+      - name: hecker-container
+        image: aakkiiff/hecker:0.2
+        ports:
+        - containerPort: 80
