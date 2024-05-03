@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hecker-deployment
 spec:
-  replicas: 10
+  replicas: 3
   selector:
     matchLabels:
       app: hecker
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: hecker-container
-        image: aakkiiff/hecker:0.2
+        image: nginx
         ports:
         - containerPort: 80
