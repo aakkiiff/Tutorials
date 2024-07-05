@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 # remove cache package ->-> reduce file size
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    openjdk-11-jre wget && \
+    openjdk-17-jre wget && \
     rm -rf /var/lib/apt/lists/*
     
 # Download latest Jenkins war file
@@ -17,7 +17,7 @@ RUN mkdir /var/jenkins_home
 EXPOSE 8080
 
 # Jenkins home directory as an environment variable
-ENV JENKINS_HOME /var/jenkins_home
+ENV JENKINS_HOME=/var/jenkins_home
 
 # Run jenkins -> -> ->
 CMD ["java", "-jar", "/opt/jenkins.war"]
