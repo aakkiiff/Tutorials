@@ -57,7 +57,7 @@ func listRunningInstancesInRegion(ctx context.Context, region string, cfg aws.Co
 
 			oneHour := time.Hour
 			if duration > oneHour {
-				fmt.Printf("Instance %s has been running for more than 1 hour. Terminating...\n", instanceID)
+				fmt.Printf("Instance %s has been running for more than 1 hour in %s. Terminating...\n", instanceID,region)
 
 				// Terminate the instance
 				_, err := svc.TerminateInstances(ctx, &ec2.TerminateInstancesInput{
@@ -70,7 +70,7 @@ func listRunningInstancesInRegion(ctx context.Context, region string, cfg aws.Co
 					fmt.Printf("Instance %s has been terminated.\n", instanceID)
 				}
 			} else {
-				fmt.Printf("Instance %s has been running for less than 1 hour.\n", instanceID)
+				fmt.Printf("Instance %s has been running for less than 1 hour in %s.\n", instanceID,region)
 			}
 
 			// Print instance details
