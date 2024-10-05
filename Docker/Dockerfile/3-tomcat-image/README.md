@@ -1,0 +1,1 @@
+docker build -t image_name:tag --build-arg tomcat_version=8.5.9 .
