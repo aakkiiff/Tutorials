@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack Simulation</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        #terminal {
+            width: 100%;
+            height: calc(100vh - 50px); /* Adjust height for input */
+            padding: 20px;
+            box-sizing: border-box;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            border-bottom: 2px solid lime;
+        }
+
+        .input-container {
+            display: flex;
+            padding: 10px;
+            background-color: black;
+            border-top: 2px solid lime;
+        }
+
+        .input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input:focus {
+            outline: none;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            background-color: lime;
+            animation: blink 0.6s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+            50.01%, 100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal"></div>
+    <div class="input-container">
+        <input type="text" id="commandInput" class="input" placeholder="Type your command..." autofocus>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const commandInput = document.getElementById('commandInput');
+        let lines = [
+            'Initializing system...',
+            'Connecting to mainframe...',
+            'Bypassing firewall...',
+            'Accessing confidential data...',
+            'Downloading encrypted files...',
+            'Decrypting files...',
+            'Injecting payload...',
+            'Access granted: [ADMIN] access',
+            '*** WARNING: System breach detected! ***',
+            'Trace initiated, 30 seconds until disconnect...',
+            'Downloading sensitive data...',
+            'Transferring files to remote server...',
+            'Terminating connection...',
+            'Operation successful.',
+        ];
+
+        let hackingText = '';
+        let cursor = '<span class="cursor">_</span>';
+
+        function simulateHacking() {
+            if (lines.length > 0) {
+                let line = lines.shift();
+                hackingText += line + '\n';
+                terminal.innerHTML = hackingText + cursor;
+                setTimeout(simulateHacking, Math.random() * 1000 + 500);
+            } else {
+                cursorLoop();
+            }
+        }
+
+
+        function cursorLoop() {
+            setInterval(() => {
+                let randText = '';
+                for (let i = 0; i < 100; i++) {
+                    randText += randomCharacters();
+                }
+                terminal.innerHTML = hackingText + randText + '\n' + cursor;
+            }, 100);
+        }
+
+        commandInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const command = commandInput.value;
+                hackingText += `> ${command}\n`;
+                terminal.innerHTML = hackingText + cursor;
+                commandInput.value = ''; // Clear input
+                // Simulate processing of the command
+                setTimeout(() => {
+                    hackingText += `Executing command: ${command}...\n`;
+                    terminal.innerHTML = hackingText + cursor;
+                }, 1000);
+            }
+        });
+
+        window.onload = simulateHacking;
+    </script>
+</body>
+</html>
