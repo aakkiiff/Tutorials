@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  namespace: monitoring
+  name: objstore
+stringData:
+  objstore.yml: |-
+    type: S3
+    config:
+      bucket: test
+      endpoint: "172.17.18.156:9000"
+      insecure: true
+      access_key: "dD7lJbtu9jFzM2sm"
+      secret_key: "UywEvinURqqoZxmezq8vlaLvzuKdDYDy"

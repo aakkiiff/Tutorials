@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+data:
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS test_db_123;
+    USE test_db_123;
+    CREATE TABLE infos (id INT, name VARCHAR(256), age INT);
+    INSERT INTO infos VALUES (11, 'akif', 100);
+    INSERT INTO infos VALUES (22, 'kaif', 150);
+    INSERT INTO infos VALUES (33, 'sad', 279);
