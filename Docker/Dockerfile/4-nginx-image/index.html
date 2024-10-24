@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hack Simulation</title>
+    <title>Injecting Malware</title>
     <style>
         body {
             background-color: black;
@@ -121,7 +121,7 @@
                 commandInput.value = ''; // Clear input
                 // Simulate processing of the command
                 setTimeout(() => {
-                    hackingText += `Executing command: ${command}...\n`;
+                    hackingText += `Executing command: ${command}...[output redirecting to void]\n`;
                     terminal.innerHTML = hackingText + cursor;
                 }, 1000);
             }
