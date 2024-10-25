@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  nginx:
+    build: .
+    ports:
+      - 80:80
+
+  nginx-v2:
+    build: ./nginx-v2
+    ports:
+      - 90:80
