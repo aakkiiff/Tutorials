@@ -6,6 +6,7 @@ main repo: https://github.com/ekristen/aws-nuke/blob/main/README.md
 docs: https://github.com/ekristen/aws-nuke/tree/main/docs
 ## Get started
 - create an aws account
+- run `aws configue` on your machine to authenticate with the account
 - add an account alias [ here](https://us-east-1.console.aws.amazon.com/iam/home#/home)
 - **edit nuke-config.yaml file** 
 - add the regions you want your resources to be nuked
@@ -34,7 +35,7 @@ accounts:
 
 resource-types:
 	
-		includes:
+	includes:
 			# S3
 			- S3Object
 			- S3Bucket
