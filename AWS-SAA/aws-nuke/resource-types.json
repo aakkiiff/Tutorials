@@ -1,0 +1,498 @@
+ACMCertificate                                         
+ACMPCACertificateAuthority                             
+  > AWS::ACMPCA::CertificateAuthority                      alternative cloud-control resource
+ACMPCACertificateAuthorityState                        
+AMGWorkspace                                           
+AMPWorkspace                                           
+// APIGatewayAPIKey                                       
+//   > AWS::ApiGateway::ApiKey                                alternative cloud-control resource
+// APIGatewayClientCertificate                            
+//   > AWS::ApiGateway::ClientCertificate                     alternative cloud-control resource
+// APIGatewayDomainName                                   
+// APIGatewayRestAPI                                      
+// APIGatewayUsagePlan                                    
+//   > AWS::ApiGateway::UsagePlan                             alternative cloud-control resource
+// APIGatewayV2API                                        
+// APIGatewayV2VpcLink                                    
+// APIGatewayVpcLink                                      
+AWSBackupPlan                                          
+AWSBackupRecoveryPoint                                 
+AWSBackupSelection                                     
+AWSBackupVaultAccessPolicy                             
+AccessAnalyzer                                         
+  > AWS::AccessAnalyzer::Analyzer                          alternative cloud-control resource
+AmplifyApp                                             
+AppConfigApplication                                   
+AppConfigConfigurationProfile                          
+AppConfigDeploymentStrategy                            
+AppConfigEnvironment                                   
+AppConfigHostedConfigurationVersion                    
+AppMeshGatewayRoute                                    
+AppMeshMesh                                            
+AppMeshRoute                                           
+AppMeshVirtualGateway                                  
+AppMeshVirtualNode                                     
+AppMeshVirtualRouter                                   
+AppMeshVirtualService                                  
+AppRegistryApplication                                 
+AppRunnerConnection                                    
+AppRunnerService                                       
+AppStreamDirectoryConfig                               
+AppStreamFleet                                         
+AppStreamFleetState                                    
+AppStreamImage                                         
+AppStreamImageBuilder                                  
+AppStreamImageBuilderWaiter                            
+AppStreamStack                                         
+AppStreamStackFleetAttachment                          
+AppSyncGraphqlAPI                                      
+ApplicationAutoScalingScalableTarget                   
+ArchiveRule                                            
+AthenaDataCatalog                                      
+AthenaNamedQuery                                       
+AthenaPreparedStatement                                
+AthenaWorkGroup                                        
+// AutoScalingGroup                                       
+// AutoScalingLaunchConfiguration                         
+// AutoScalingLifecycleHook                               
+// AutoScalingPlansScalingPlan                            
+BackupReportPlan                                       
+BackupVault                                            
+BatchComputeEnvironment                                
+BatchComputeEnvironmentState                           
+BatchJobQueue                                          
+BatchJobQueueState                                     
+BillingCostandUsageReport                              
+BudgetsBudget                                          
+Cloud9Environment                                      
+CloudDirectoryDirectory                                
+CloudDirectorySchema                                   
+CloudFormationStack                                    
+CloudFormationStackSet                                 
+CloudFormationType                                     
+CloudFrontCachePolicy              x                    
+CloudFrontDistribution             x                    
+CloudFrontDistributionDeployment   x                    
+CloudFrontFunction                 x                    
+CloudFrontKeyGroup                 x                    
+CloudFrontOriginAccessControl      x                    
+CloudFrontOriginAccessIdentity     x                    
+CloudFrontOriginRequestPolicy      x                    
+CloudFrontPublicKey                x                    
+CloudFrontResponseHeadersPolicy    x                    
+CloudHSMV2Cluster                                      
+CloudHSMV2ClusterHSM                                   
+CloudSearchDomain                                      
+CloudTrailTrail                                        
+CloudWatchAlarm                                        
+CloudWatchAnomalyDetector                              
+CloudWatchDashboard                                    
+CloudWatchEventsBuses                                  
+CloudWatchEventsRule                                   
+CloudWatchEventsTarget                                 
+CloudWatchInsightRule                                  
+CloudWatchLogsDestination                              
+CloudWatchLogsLogGroup                                 
+CloudWatchLogsResourcePolicy                           
+CloudWatchRUMApp                                       
+CodeArtifactDomain                                     
+CodeArtifactRepository                                 
+CodeBuildBuild                                         
+CodeBuildBuildBatch                                    
+CodeBuildProject                                       
+CodeBuildReport                                        
+CodeBuildReportGroup                                   
+CodeBuildSourceCredential                              
+CodeCommitRepository                                   
+CodeDeployApplication                                  
+CodeDeployDeploymentConfig                             
+CodeDeployDeploymentGroup                              
+CodeGuruReviewerRepositoryAssociation                  
+CodePipelineCustomActionType                           
+CodePipelinePipeline                                   
+CodePipelineWebhook                                    
+CodeStarConnection                                     
+CodeStarNotificationRule                               
+CodeStarProject                                        
+CognitoIdentityPool                                    
+CognitoIdentityProvider                                
+CognitoUserPool                                        
+CognitoUserPoolClient                                  
+CognitoUserPoolDomain                                  
+ComprehendDocumentClassifier                           
+ComprehendDominantLanguageDetectionJob                 
+ComprehendEndpoint                                     
+ComprehendEntitiesDetectionJob                         
+ComprehendEntityRecognizer                             
+ComprehendEventsDetectionJob                           
+ComprehendKeyPhrasesDetectionJob                       
+ComprehendPiiEntitiesDetectionJob                      
+ComprehendSentimentDetectionJob                        
+ComprehendTargetedSentimentDetectionJob                
+ConfigServiceConfigRule                                
+ConfigServiceConfigurationRecorder                     
+ConfigServiceConformancePack                           
+ConfigServiceDeliveryChannel                           
+DAXCluster                                             
+DAXParameterGroup                                      
+DAXSubnetGroup                                         
+DataPipelinePipeline                                   
+DatabaseMigrationServiceCertificate                    
+DatabaseMigrationServiceEndpoint                       
+DatabaseMigrationServiceEventSubscription              
+DatabaseMigrationServiceReplicationInstance            
+DatabaseMigrationServiceReplicationTask                
+DatabaseMigrationServiceSubnetGroup                    
+DeviceFarmProject                                      
+DirectoryServiceDirectory                              
+// DynamoDBBackup                                         
+// DynamoDBTable                                          
+// DynamoDBTableItem                                      
+EC2Address                                             
+EC2ClientVpnEndpoint                                   
+EC2ClientVpnEndpointAttachment                         
+EC2CustomerGateway                                     
+EC2DHCPOption                                          
+EC2DefaultSecurityGroupRule                            
+EC2EgressOnlyInternetGateway                           
+EC2Host                                                
+EC2Image                                               
+EC2Instance  x                                          
+EC2InstanceConnectEndpoint                             
+EC2InternetGateway                                     
+EC2InternetGatewayAttachment                           
+// EC2KeyPair                                             
+EC2LaunchTemplate                                      
+EC2NATGateway    x                                      
+EC2NetworkACL                                          
+EC2NetworkInterface                                    
+EC2PlacementGroup                                      
+EC2RouteTable                                          
+EC2SecurityGroup                                       
+EC2Snapshot                                            
+EC2SpotFleetRequest   x                                 
+EC2Subnet                                              
+EC2TGW                                                 
+EC2TGWAttachment                                       
+EC2TGWConnectPeer                                      
+EC2VPC                                                 
+  > AWS::EC2::VPC                                          alternative cloud-control resource
+EC2VPCEndpoint                                         
+EC2VPCEndpointConnection                               
+EC2VPCEndpointServiceConfiguration                     
+EC2VPCPeeringConnection                                
+EC2VPNConnection                                       
+EC2VPNGateway                                          
+EC2VPNGatewayAttachment                                
+// EC2Volume          x                                    
+ECRPublicRepository                                    
+  > AWS::ECR::PublicRepository                             alternative cloud-control resource
+ECRRepository                                          
+  > AWS::ECR::Repository                                   alternative cloud-control resource
+// ECSCapacityProvider                                    
+// ECSCluster                                             
+// ECSClusterInstance                                     
+// ECSService                                             
+// ECSTask                                                
+// ECSTaskDefinition                                      
+// EFSFileSystem         x                                 
+// EFSMountTarget       x                                  
+// EKSCluster              x                               
+// EKSFargateProfile      x                                
+// EKSNodegroup            x                               
+// ELB                       x                             
+// ELBv2                       x                           
+// ELBv2ListenerRule           x                           
+// ELBv2TargetGroup             x                          
+EMRCluster                                             
+EMRSecurityConfiguration                               
+ESDomain                                               
+ElasticBeanstalkApplication         x                   
+ElasticBeanstalkEnvironment         x                   
+ElasticTranscoderPipeline                              
+ElasticTranscoderPreset                                
+// ElasticacheCacheCluster                                
+// ElasticacheCacheParameterGroup                         
+// ElasticacheReplicationGroup                            
+// ElasticacheSubnetGroup                                 
+// ElasticacheUser                                        
+// ElasticacheUserGroup                                   
+FMSNotificationChannel                                 
+FMSPolicy                                              
+FSxBackup                                              
+FSxFileSystem                                          
+FirehoseDeliveryStream                                 
+GameLiftBuild                                          
+GameLiftFleet                                          
+GameLiftMatchmakingConfiguration                       
+GameLiftMatchmakingRuleSet                             
+GameLiftQueue                                          
+GlobalAccelerator                                      
+GlobalAcceleratorEndpointGroup                         
+GlobalAcceleratorListener                              
+GlueBlueprint                                          
+GlueClassifier                                         
+GlueConnection                                         
+GlueCrawler                                            
+GlueDataBrewDatasets                                   
+GlueDataBrewJobs                                       
+GlueDataBrewProjects                                   
+GlueDataBrewRecipe                                     
+GlueDataBrewRulesets                                   
+GlueDataBrewSchedules                                  
+GlueDatabase                                           
+GlueDevEndpoint                                        
+GlueJob                                                
+GlueMLTransform                                        
+GlueSecurityConfiguration                              
+GlueSession                                            
+GlueTrigger                                            
+GlueWorkflow                                           
+GuardDutyDetector                                      
+IAMAccountSettingPasswordPolicy                        
+IAMGroup                                               
+IAMGroupPolicy                                         
+IAMGroupPolicyAttachment                               
+IAMInstanceProfile                                     
+IAMInstanceProfileRole                                 
+IAMLoginProfile                                        
+IAMOpenIDConnectProvider                               
+IAMPolicy                                              
+IAMRole                                                
+IAMRolePolicy                                          
+IAMRolePolicyAttachment                                
+IAMRolesAnywhereCRL                                    
+IAMRolesAnywhereProfile                                
+IAMRolesAnywhereTrustAnchor                            
+IAMSAMLProvider                                        
+IAMServerCertificate                                   
+IAMServiceSpecificCredential                           
+IAMSigningCertificate                                  
+IAMUser                                                
+IAMUserAccessKey                                       
+IAMUserGroupAttachment                                 
+IAMUserHTTPSGitCredential                              
+IAMUserMFADevice                                       
+IAMUserPolicy                                          
+IAMUserPolicyAttachment                                
+IAMUserSSHPublicKey                                    
+IAMVirtualMFADevice                                    
+ImageBuilderComponent                                  
+ImageBuilderDistributionConfiguration                  
+ImageBuilderImage                                      
+ImageBuilderInfrastructureConfiguration                
+ImageBuilderPipeline                                   
+ImageBuilderRecipe                                     
+Inspector2                                             
+InspectorAssessmentRun                                 
+InspectorAssessmentTarget                              
+InspectorAssessmentTemplate                            
+IoTAuthorizer                                          
+IoTCACertificate                                       
+IoTCertificate                                         
+IoTJob                                                 
+IoTOTAUpdate                                           
+IoTPolicy                                              
+IoTRoleAlias                                           
+IoTStream                                              
+IoTThing                                               
+IoTThingGroup                                          
+IoTThingType                                           
+IoTThingTypeState                                      
+IoTTopicRule                                           
+KMSAlias                                               
+KMSKey                                                 
+KendraIndex                                            
+KinesisAnalyticsApplication                            
+KinesisStream                                          
+KinesisVideoProject                                    
+// LambdaEventSourceMapping                               
+// LambdaFunction                                         
+// LambdaLayer                                            
+LexBot                                                 
+LexIntent                                              
+LexModelBuildingServiceBotAlias                        
+LexSlotType                                            
+LightsailDisk                                          
+LightsailDomain                                        
+LightsailInstance                                      
+LightsailKeyPair                                       
+LightsailLoadBalancer                                  
+LightsailStaticIP                                      
+MGNJob                                                 
+MGNSourceServer                                        
+MQBroker                                               
+MSKCluster                                             
+MSKConfiguration                                       
+MachineLearningBranchPrediction                        
+MachineLearningDataSource                              
+MachineLearningEvaluation                              
+MachineLearningMLModel                                 
+Macie                                                  
+ManagedBlockchainMember                                
+MediaConvertJobTemplate                                
+MediaConvertPreset                                     
+MediaConvertQueue                                      
+MediaLiveChannel                                       
+MediaLiveInput                                         
+MediaLiveInputSecurityGroup                            
+MediaPackageChannel                                    
+MediaPackageOriginEndpoint                             
+MediaStoreContainer                                    
+MediaStoreDataItems                                    
+MediaTailorConfiguration                               
+MemoryDBACL                                            
+MemoryDBCluster                                        
+MemoryDBParameterGroup                                 
+MemoryDBSubnetGroup                                    
+MemoryDBUser                                           
+MobileProject                                          
+NeptuneCluster                                         
+NeptuneInstance                                        
+NeptuneSnapshot                                        
+NetworkManagerConnectPeer                              
+NetworkManagerCoreNetwork                              
+NetworkManagerGlobalNetwork                            
+NetworkManagerNetworkAttachment                        
+OSDomain                                               
+OSPackage                                              
+OSPipeline                                             
+OSVPCEndpoint                                          
+OpsWorksApp                                            
+OpsWorksCMBackup                                       
+OpsWorksCMServer                                       
+OpsWorksCMServerState                                  
+OpsWorksInstance                                       
+OpsWorksLayer                                          
+OpsWorksUserProfile                                    
+PinpointApp                                            
+PinpointPhoneNumber                                    
+PipesPipe                                              
+PollyLexicon                                           
+QLDBLedger                                             
+QuickSightSubscription                                 
+QuickSightUser                                         
+// RDSClusterSnapshot                                     
+// RDSDBCluster                                           
+// RDSDBClusterParameterGroup                             
+// RDSDBParameterGroup                                    
+// RDSDBSubnetGroup                                       
+// RDSEventSubscription                                   
+// RDSInstance                                            
+// RDSOptionGroup                                         
+// RDSProxy                                               
+// RDSSnapshot                                            
+RedshiftCluster                                        
+RedshiftParameterGroup                                 
+RedshiftScheduledAction                                
+RedshiftServerlessNamespace                            
+RedshiftServerlessSnapshot                             
+RedshiftServerlessWorkgroup                            
+RedshiftSnapshot                                       
+RedshiftSnapshotSchedule                               
+RedshiftSubnetGroup                                    
+RekognitionCollection                                  
+RekognitionDataset                                     
+RekognitionProject                                     
+ResourceExplorer2Index                                 
+ResourceExplorer2View                                  
+ResourceGroupGroup                                     
+RoboMakerRobotApplication                              
+RoboMakerSimulationApplication                         
+RoboMakerSimulationJob                                 
+Route53HealthCheck             x                        
+Route53HostedZone              x                        
+Route53ResolverEndpoint        x                        
+Route53ResolverRule            x                        
+Route53ResourceRecordSet       x                        
+Route53TrafficPolicy           x                        
+S3AccessPoint                                          
+S3Bucket                                               
+  > AWS::S3::Bucket                                        alternative cloud-control resource
+S3MultipartUpload                                      
+S3Object                                               
+SESConfigurationSet                                    
+SESIdentity                                            
+SESReceiptFilter                                       
+SESReceiptRuleSet                                      
+SESTemplate                                            
+SFNStateMachine                                        
+SNSEndpoint                                            
+SNSPlatformApplication                                 
+SNSSubscription                                        
+SNSTopic                                               
+SQSQueue                                               
+SSMActivation                                          
+SSMAssociation                                         
+SSMDocument                                            
+SSMMaintenanceWindow                                   
+SSMParameter                                           
+SSMPatchBaseline                                       
+SSMResourceDataSync                                    
+SageMakerApp                                           
+SageMakerDomain                                        
+SageMakerEndpoint                                      
+SageMakerEndpointConfig                                
+SageMakerModel                                         
+SageMakerNotebookInstance                              
+SageMakerNotebookInstanceLifecycleConfig               
+SageMakerNotebookInstanceState                         
+SageMakerSpace                                         
+SageMakerUserProfiles                                  
+SchedulerSchedule                                      
+SecretsManagerSecret                                   
+SecurityHub                                            
+ServiceCatalogConstraintPortfolioAttachment            
+ServiceCatalogPortfolio                                
+ServiceCatalogPortfolioProductAttachment               
+ServiceCatalogPortfolioShareAttachment                 
+ServiceCatalogPrincipalPortfolioAttachment             
+ServiceCatalogProduct                                  
+ServiceCatalogProvisionedProduct                       
+ServiceCatalogTagOption                                
+ServiceCatalogTagOptionPortfolioAttachment             
+ServiceDiscoveryInstance                               
+ServiceDiscoveryNamespace                              
+ServiceDiscoveryService                                
+SignerSigningJob                                       
+SimpleDBDomain                                         
+StorageGatewayFileShare                                
+StorageGatewayGateway                                  
+StorageGatewayTape                                     
+StorageGatewayVolume                                   
+TranscribeCallAnalyticsCategory                        
+TranscribeCallAnalyticsJob                             
+TranscribeLanguageModel                                
+TranscribeMedicalTranscriptionJob                      
+TranscribeMedicalVocabulary                            
+TranscribeTranscriptionJob                             
+TranscribeVocabulary                                   
+TranscribeVocabularyFilter                             
+TransferServer                                         
+TransferServerUser                                     
+WAFRegionalByteMatchSet                                
+WAFRegionalByteMatchSetIP                              
+WAFRegionalIPSet                                       
+WAFRegionalIPSetIP                                     
+WAFRegionalRateBasedRule                               
+WAFRegionalRateBasedRulePredicate                      
+WAFRegionalRegexMatchSet                               
+WAFRegionalRegexMatchTuple                             
+WAFRegionalRegexPatternSet                             
+WAFRegionalRegexPatternString                          
+WAFRegionalRule                                        
+WAFRegionalRuleGroup                                   
+WAFRegionalRulePredicate                               
+WAFRegionalWebACL                                      
+WAFRegionalWebACLRuleAttachment                        
+WAFRule                                                
+WAFWebACL                                              
+WAFWebACLRuleAttachment                                
+WAFv2APIKey                                            
+WAFv2IPSet                                             
+WAFv2RegexPatternSet                                   
+WAFv2RuleGroup                                         
+WAFv2WebACL                                            
+WorkSpacesWorkspace                                    
+XRayGroup                                              
+XRaySamplingRule                                      
