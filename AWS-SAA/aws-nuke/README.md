@@ -87,4 +87,4 @@ excludes:
 `aws-nuke resource-types`
 
 - command to nuke
-`aws-nuke run --config nuke-config.yaml`
+`aws-nuke run --config nuke-config.yaml --no-dry-run`
