@@ -32,7 +32,7 @@ make
 sudo make install 
 sudo /etc/init.d/vmware start
 ```
-
+- you might need to disable secure boot to make everything work
 ## install ubuntu 22.04
 1. https://releases.ubuntu.com/jammy/
 2. install server image
