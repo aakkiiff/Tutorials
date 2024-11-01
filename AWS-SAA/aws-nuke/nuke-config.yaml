@@ -1,0 +1,148 @@
+regions:
+  - global
+  - us-east-1
+  - us-east-2
+  - us-west-1
+  - us-west-2
+  - ap-south-1
+  - ap-northeast-3
+  - ap-northeast-2
+  - ap-southeast-1
+  - ap-southeast-2
+  - ap-northeast-1
+  - ca-central-1
+  - eu-central-1
+  - eu-west-1
+  - eu-west-2
+  - eu-west-3
+  - eu-north-1
+  - sa-east-1
+blocklist:
+  - "999999999999" # production account
+accounts:
+  "515966537504": {}
+resource-types:
+  includes:
+  # S3
+    - S3Object
+    - S3Bucket
+  # EC2 + EBS/EFS + Load Balancer + ASG
+    - EC2Instance
+    - EC2NATGateway
+    - EC2SpotFleetRequest
+    - EC2Volume
+    - EC2KeyPair
+
+    - EFSFileSystem                                          
+    - EFSMountTarget  
+
+    - ELB                                                    
+    - ELBv2                                                  
+    - ELBv2ListenerRule                                      
+    - ELBv2TargetGroup 
+
+    - AutoScalingGroup                                       
+    - AutoScalingLaunchConfiguration                         
+    - AutoScalingLifecycleHook                               
+    - AutoScalingPlansScalingPlan   
+  # Elastic Beanstalk
+    - ElasticBeanstalkApplication                            
+    - ElasticBeanstalkEnvironment        
+
+  # EKS + ECS
+    - EKSCluster                                             
+    - EKSFargateProfile                                      
+    - EKSNodegroup        
+ 
+    - ECSCapacityProvider                                    
+    - ECSCluster                                             
+    - ECSClusterInstance                                     
+    - ECSService                                             
+    - ECSTask                                                
+    - ECSTaskDefinition    
+  # Route 53
+    - Route53HealthCheck
+    - Route53HostedZone
+    - Route53ResolverEndpoint
+    - Route53ResolverRule
+    - Route53ResourceRecordSet
+    - Route53TrafficPolicy
+  # cloud front
+    - CloudFrontCachePolicy                                  
+    - CloudFrontDistribution                                 
+    - CloudFrontDistributionDeployment                       
+    - CloudFrontFunction                                     
+    - CloudFrontKeyGroup                                     
+    - CloudFrontOriginAccessControl                          
+    - CloudFrontOriginAccessIdentity                         
+    - CloudFrontOriginRequestPolicy                          
+    - CloudFrontPublicKey                                    
+    - CloudFrontResponseHeadersPolicy                        
+  # lamnda  apig
+    - LambdaEventSourceMapping                               
+    - LambdaFunction                                         
+    - LambdaLayer 
+ 
+    - APIGatewayV2API
+    - APIGatewayUsagePlan
+    - APIGatewayRestAPI
+    - APIGatewayDomainName
+    - APIGatewayClientCertificate
+    - APIGatewayAPIKey
+
+  # databases 
+    - DynamoDBBackup                                         
+    - DynamoDBTable                                          
+    - DynamoDBTableItem 
+
+    - RDSClusterSnapshot                                     
+    - RDSDBCluster                                           
+    - RDSDBClusterParameterGroup                             
+    - RDSDBParameterGroup                                    
+    - RDSDBSubnetGroup                                       
+    - RDSEventSubscription                                   
+    - RDSInstance                                            
+    - RDSOptionGroup                                         
+    - RDSProxy                                               
+    - RDSSnapshot  
+
+    - ElasticacheCacheCluster                                
+    - ElasticacheCacheParameterGroup                         
+    - ElasticacheReplicationGroup                            
+    - ElasticacheSubnetGroup                                 
+    - ElasticacheUser                                        
+    - ElasticacheUserGroup      
+
+
+
+
+  # excludes:
+  #   - IAMAccountSettingPasswordPolicy                        
+  #   - IAMGroup                                               
+  #   - IAMGroupPolicy                                         
+  #   - IAMGroupPolicyAttachment                                
+  #   - IAMInstanceProfile                                     
+  #   - IAMInstanceProfileRole                                 
+  #   - IAMLoginProfile                                        
+  #   - IAMOpenIDConnectProvider                                
+  #   - IAMPolicy                                              
+  #   - IAMRole                                                
+  #   - IAMRolePolicy                                          
+  #   - IAMRolePolicyAttachment                                
+  #   - IAMRolesAnywhereCRL                                    
+  #   - IAMRolesAnywhereProfile                                
+  #   - IAMRolesAnywhereTrustAnchor                            
+  #   - IAMSAMLProvider                                        
+  #   - IAMServerCertificate                                   
+  #   - IAMServiceSpecificCredential                           
+  #   - IAMSigningCertificate                                  
+  #   - IAMUser                                                
+  #   - IAMUserAccessKey                                       
+  #   - IAMUserGroupAttachment                                 
+  #   - IAMUserHTTPSGitCredential                              
+  #   - IAMUserMFADevice                                       
+  #   - IAMUserPolicy                                          
+  #   - IAMUserPolicyAttachment                                
+  #   - IAMUserSSHPublicKey                                    
+  #   - IAMVirtualMFADevice  
+  #   - EC2VPC
