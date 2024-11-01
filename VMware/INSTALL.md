@@ -33,3 +33,6 @@ sudo make install
 sudo /etc/init.d/vmware start
 ```
 
+## install ubuntu 22.04
+1. https://releases.ubuntu.com/jammy/
+2. install server image
