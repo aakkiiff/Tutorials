@@ -1,0 +1,56 @@
+version: '3.8'
+services:
+  # Nginx as Web Server
+  nginx:
+    build: ./nginx/
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./php-app:/usr/share/nginx/html
+    networks:
+      - ecom-net
+  # Php Application
+  php-fpm:
+    build: ./php-app/
+    container_name: php-fpm
+    ports:
+      - 9000
+    volumes:
+      - ./php-app:/usr/share/nginx/html
+    networks:
+      - ecom-net
+  # Database
+  database:
+    image: mysql:5.7
+    container_name: database
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./mysql/mysql_data:/var/lib/mysql
+      - ./mysql/shop_db.sql:/docker-entrypoint-initdb.d/shop_db.sql
+    networks:
+      - ecom-net
+  # PhpMyadmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: my-phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8080:80"
+    depends_on:
+      - database
+    networks:
+      - ecom-net
+networks:
+  ecom-net:
+    driver: bridge
