@@ -21,6 +21,9 @@ Alternatively, you can edit the Deployment and change.\
 You can scale a Deployment by using the following command.
 `kubectl scale deployment/nginx-deployment --replicas=10`
 
-## List all deployment in all namespaces, with more details\
-`kubectl get deployment -o wide --all-namespaces`
-`kubectl get deployment -o wide -A`
+## List all deployment, with more details\
+`kubectl get deployment -o wide`
+
+
+## delete deployment
+`kubectl delete deployments test`

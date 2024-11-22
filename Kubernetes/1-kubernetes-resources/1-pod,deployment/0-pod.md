@@ -23,6 +23,8 @@ Run with Labels, Example tier\
 Deploy a `redis` pod using the `redis:alpine` image with the labels set to `tier=db`.\
 `kubectl run redis --image=redis:alpine --labels tier=db`
 
-List all pods in all namespaces, with more details\
-`kubectl get pods -o wide --all-namespaces`
-`kubectl get pods -o wide -A`
+List all pods , with more details\
+`kubectl get pods -o wide `
+
+delete pod
+`kubectl delete pod podname`
