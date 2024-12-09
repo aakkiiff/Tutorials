@@ -1,0 +1,36 @@
+services:
+  # MySQL
+  mysqldb5:
+    image: mysql:5.7
+    container_name: my-mysql5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql-data5:/var/lib/mysql
+      - ./init-db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - "3305:3306"
+
+
+  # PhpMyAdmin
+  phpmyadmin5:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: my-phpmyadmin5
+    restart: always
+    environment:
+      PMA_HOST: mysqldb5
+      PMA_PORT: 3305
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8082:80"
+    depends_on:
+      - mysqldb5
+
+
+volumes:
+  mysql-data5:

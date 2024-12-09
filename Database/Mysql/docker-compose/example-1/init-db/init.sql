@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS dbname;
+CREATE USER 'username'@'%' IDENTIFIED BY 'passwd';
+GRANT ALL PRIVILEGES ON quickops.* TO 'username'@'%';
+FLUSH PRIVILEGES;
