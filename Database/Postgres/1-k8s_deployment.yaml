@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pg15
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: pg15
+        image: postgres:15
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "pgpass"
+        - name: POSTGRES_USER
+          value: "pguser"
+        - name: POSTGRES_DB
+          value: "corteza"
+        volumeMounts:
+        - name: postgresql-config
+          mountPath: /var/www/postgre-15/postgresql.conf
+          subPath: postgresql.conf
+      volumes:
+      - name: postgresql-config
+        configMap:
+          name: postgresql-config-map
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pg15-service
+spec:
+  selector:
+    app: postgres
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgresql-config-map
+data:
+  postgresql.conf: |
+    # Your custom postgresql.conf content goes here.
+    # For example:
+    # listen_addresses = '*'
+    # max_connections = 1000
+    # Other custom PostgreSQL configuration settings
