@@ -1,0 +1,35 @@
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mysql-backup-cronjob
+spec:
+  schedule: "* * * * *" # Runs every minute
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: mysql-backup
+            image: mysql:8.0
+            command:
+            - "/bin/sh"
+            - "-c"
+            - >
+              mysqldump -h mysql-service -u$MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE > /backup/db-backup-$(date +\%Y\%m\%d\%H\%M\%S).sql;
+            env:
+            - name: MYSQL_USER
+              value: "root"
+            - name: MYSQL_PASSWORD
+              value: "rootpassword"
+            - name: MYSQL_DATABASE
+              value: "exampledb"
+            volumeMounts:
+            - name: backup-volume
+              mountPath: /backup
+          restartPolicy: OnFailure
+          volumes:
+          - name: backup-volume
+            hostPath:
+              path: /data/mysql-backups
+              type: DirectoryOrCreate
