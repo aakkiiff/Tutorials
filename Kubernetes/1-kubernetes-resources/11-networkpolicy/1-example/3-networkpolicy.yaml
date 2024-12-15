@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-pod1-to-pod2
+  namespace: test-namespace
+spec:
+  podSelector:
+    matchLabels:
+      app: pod2
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: pod1
+          

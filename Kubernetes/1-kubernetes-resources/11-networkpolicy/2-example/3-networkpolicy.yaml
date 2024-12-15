@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-from-b
+  namespace: a
+spec:
+  podSelector: {} # Selects all pods in namespace a
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: b
+      podSelector:
+        matchLabels:
+          app: pod-b
