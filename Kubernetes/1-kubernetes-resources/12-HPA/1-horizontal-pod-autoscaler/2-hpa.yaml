@@ -1,0 +1,32 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 30      # Wait 30 sec before scaling down
+      policies:
+        - type: Percent
+          value: 10                       # Scale down by 10% of current replicas
+          periodSeconds: 30               # Evaluate every 30 seconds
+    scaleUp:
+      policies:
+        - type: Percent
+          value: 50                       # Scale up by 50% of current replicas
+          periodSeconds: 30               # Evaluate every 30 seconds
+      stabilizationWindowSeconds: 0       # No stabilization for scaling up
