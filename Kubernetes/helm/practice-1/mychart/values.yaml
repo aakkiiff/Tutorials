@@ -1,0 +1,16 @@
+Global:
+  Namepace: test
+
+Deployment:
+  Enable: True
+  Name: test
+  Image: aakkiiff/hecker:0.3
+  Port: 80
+  Replicas: 2
+
+Service: 
+  Type: LoadBalancer
+
+Ingress:
+  Enable: True
+

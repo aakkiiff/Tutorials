@@ -1,0 +1,35 @@
+{{- if .Values.Deployment.Enable }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ quote .Values.Deployment.Name }}
+  namespace: {{ quote .Values.Global.Namepace }}
+  labels:
+    app: {{ quote .Values.Deployment.Name }}
+spec:
+  replicas: {{ .Values.Deployment.Replicas}}
+  selector:
+    matchLabels:
+      app: {{ quote .Values.Deployment.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ quote .Values.Deployment.Name }}
+    spec:
+      containers:
+        - name: {{  .Values.Deployment.Name }}-container
+          image: {{  quote .Values.Deployment.Image }}
+          ports:
+            - containerPort: {{ .Values.Deployment.Port }}
+          env:
+            - name: ENV_VAR_NAME
+              value: "example-value"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+{{- end }}
