@@ -1,0 +1,54 @@
+services:
+  sonarqube:
+    image: sonarqube:community
+    hostname: sonarqube
+    container_name: sonarqube
+    read_only: true
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://db:5432/sonar
+      SONAR_JDBC_USERNAME: sonarUser
+      SONAR_JDBC_PASSWORD: sonarPass1
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_temp:/opt/sonarqube/temp
+    ports:
+      - "9000:9000"
+
+  db:
+    image: postgres:15
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+    hostname: postgresql
+    container_name: postgresql
+    environment:
+      POSTGRES_USER: sonarUser
+      POSTGRES_PASSWORD: sonarPass1
+      POSTGRES_DB: sonar
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+
+
+volumes:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_temp:
+  sonarqube_extensions:
+  sonarqube_logs:
+  postgresql:
+  postgresql_data:
+
+#psql -U sonarUser -d sonar
+#CREATE ROLE root WITH LOGIN PASSWORD 'your_password';
+#CREATE DATABASE root;
