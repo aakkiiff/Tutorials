@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Extract all Host entries from ~/.ssh/config
+hosts=$(grep -E '^Host ' ~/.ssh/config | awk '{print $2}')
+
+# Use fzf to select a host
+selected_host=$(echo "$hosts" | fzf --prompt="Select a server: " --height=10 --border)
+
+# If a host is selected, connect to it
+if [ -n "$selected_host" ]; then
+    ssh "$selected_host"
+else
+    echo "No selection made."
+fi
+
+#
