@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('CLEANUP WORKSPACE') {
+            steps {
+                script {
+                    cleanWs()
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            withCredentials([string(credentialsId: 'google_chat_token', variable: 'token')]) {
+                hangoutsNotify(
+                    message: """
+                        <b><font color="#0F9D58">✅ PIPELINE SUCCESS</font></b><br>
+                        <b>Pipeline:</b> $env.JOB_NAME<br>
+                        <b>Build Number:</b> $env.BUILD_NUMBER<br>
+                        <b>Status:</b> <font color="#0F9D58">COMPLETED SUCCESSFULLY</font><br>
+                        <i>Great job! 🎉</i>
+                    """,
+                    token: env.token
+                )
+            }
+        }
+        failure {
+            withCredentials([string(credentialsId: 'google_chat_token', variable: 'token')]) {
+                hangoutsNotify(
+                    message: """
+                        <b><font color="#EA4335">❌ PIPELINE FAILURE</font></b><br>
+                        <b>Pipeline:</b> $env.JOB_NAME<br>
+                        <b>Build Number:</b> $env.BUILD_NUMBER<br>
+                        <b>Status:</b> <font color="#EA4335">FAILED</font><br>
+                        <i>Please check the logs for details. 🛠️</i>
+                    """,
+                    token: env.token
+                )
+            }
+        }
+    }
+}
