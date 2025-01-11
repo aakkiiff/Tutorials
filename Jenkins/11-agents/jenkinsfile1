@@ -1,0 +1,13 @@
+pipeline {
+    agent {
+        label 'agent1'
+    }
+    stages {
+        stage('Get Hostname') {
+            steps {
+                echo 'Fetching hostname...'
+                sh 'hostname'
+            }
+        }
+    }
+}
