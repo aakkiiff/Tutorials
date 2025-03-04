@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      # initContainers:
+      # - name: init-copy
+      #   image: devopsaes/phptest:0.1php
+      #   command:
+      #     - sh
+      #     - -c
+      #     - |
+      #       # If the PVC is empty (no index.php), copy the image’s default files
+      #       if [ ! -f /var/www/html/index.php ]; then
+      #         cp -r /var/www/html/* /mnt/src/;
+      #       fi
+      #   volumeMounts:
+      #   - name: src-volume
+      #     mountPath: /mnt/src
+      containers:
+      - name: php
+        image: devopsaes/phptest:php2
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+        - name: src-volume
+          mountPath: /var/www/html
+      volumes:
+      - name: src-volume
+        persistentVolumeClaim:
+          claimName: src-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php
+spec:
+  selector:
+    app: php
+  ports:
+  - port: 9000
+    targetPort: 9000

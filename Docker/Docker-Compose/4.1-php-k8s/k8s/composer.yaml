@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: composer
+spec:
+  template:
+    spec:
+      containers:
+      - name: composer
+        image: devopsaes/phptest:0.1composer
+        command: ["composer", "create-project", "--prefer-dist", "laravel/laravel", "laraapp"]
+        volumeMounts:
+        - name: src-volume
+          mountPath: /var/www/html
+      restartPolicy: OnFailure
+      volumes:
+      - name: src-volume
+        persistentVolumeClaim:
+          claimName: src-pvc
