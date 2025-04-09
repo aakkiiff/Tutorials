@@ -182,7 +182,7 @@ Dump current cluster state to stdout\
 
 ## 8. Deploy Applications into k8s Cluster (Master Node)
 To deploy Nginx using the imperative approach in Kubernetes.\
-`kubectl run nginx-deployment --image=nginx --replicas=3 --port=80`
+`kubectl create deployment nginx-deployment --image=nginx --replicas=3 --port=80`
 
 If you want to expose the Nginx deployment externally, you can create a service.\
 `kubectl expose deployment nginx-deployment --type=LoadBalancer --name=nginx-service`
