@@ -131,7 +131,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ## 4. Initialization the Kubernetes Cluster (Master Node).
 Description: Initialize the Kubernetes control-plane on the master server.
 
-`sudo kubeadm init --apiserver-advertise-address=172.17.17.200 --cri-socket /run/containerd/containerd.sock --ignore-preflight-errors Swap`
+`sudo kubeadm init --apiserver-advertise-address=172.17.17.200 --pod-network-cidr=192.168.0.0/16 --cri-socket /run/containerd/containerd.sock --ignore-preflight-errors Swap`
 
 - 172.17.17.200 this is your k8s Master Server IP
 - 192.168.0.0/16 this is Pod CIDR if you change this you have to udpate CNI Network Configuration operator file also.
