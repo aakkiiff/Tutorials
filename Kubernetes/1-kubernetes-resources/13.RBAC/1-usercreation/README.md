@@ -96,3 +96,6 @@ To test it, change the context to  `newuser`:
 ```shell
 kubectl config use-context newuser
 ```
+
+Generate the clean config file, for sharing
+`kubectl config view --minify --flatten --context=$(kubectl config current-context) > current-context.yaml`
