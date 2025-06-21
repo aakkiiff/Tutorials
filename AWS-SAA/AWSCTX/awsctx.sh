@@ -3,6 +3,34 @@
 AWS_CREDENTIALS_FILE=~/.aws/credentials
 AWS_CONFIG_FILE=~/.aws/config
 
+
+function show_help() {
+    echo ""
+    echo "📦 AWSCTX - Simple AWS Profile Manager"
+    echo ""
+    echo "Usage:"
+    echo "  awsctx [command]            Description"
+    echo ""
+    echo "  awsctx                      Interactively switch the default AWS profile"
+    echo "  awsctx add                  Add a new AWS profile"
+    echo "  awsctx ls                   List all available AWS profiles"
+    echo "  awsctx rm <profile_name>    Remove a specific AWS profile by name"
+    echo "  awsctx --help, -h           Show this help message"
+    echo ""
+}
+
+
+function list_profiles() {
+    if [[ ! -f "$AWS_CREDENTIALS_FILE" ]]; then
+        echo "No credentials file found."
+        return
+    fi
+
+    echo "Available AWS profiles:"
+    grep '^\[' "$AWS_CREDENTIALS_FILE" | sed 's/^\[\(.*\)\]$/- \1/'
+}
+
+
 function add_profile() {
     read -p "Enter profile name: " profile
     read -p "AWS Access Key ID: " access_key
@@ -38,6 +66,47 @@ function add_profile() {
 
     echo "✅ Profile '$profile' added successfully."
 }
+
+function remove_profile() {
+    if [[ ! -f "$AWS_CREDENTIALS_FILE" ]]; then
+        echo "No credentials file found."
+        return
+    fi
+
+    profiles=$(grep '^\[' "$AWS_CREDENTIALS_FILE" | sed 's/^\[\(.*\)\]$/\1/')
+    selected=$(echo "$profiles" | fzf --prompt="Select profile to remove: ")
+
+    if [[ -z "$selected" ]]; then
+        echo "❌ No profile selected."
+        return
+    fi
+
+    # Confirm deletion
+    read -p "⚠️ Are you sure you want to delete the profile '$selected'? [y/N]: " confirm
+    if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+        echo "Cancelled."
+        return
+    fi
+
+    # Remove from credentials
+    awk -v profile="[$selected]" '
+        BEGIN {in_section=0}
+        $0 == profile {in_section=1; next}
+        /^\[.*\]/ {if (in_section) {in_section=0}; if (!in_section) print $0; next}
+        { if (!in_section) print }
+    ' "$AWS_CREDENTIALS_FILE" > "${AWS_CREDENTIALS_FILE}.tmp" && mv "${AWS_CREDENTIALS_FILE}.tmp" "$AWS_CREDENTIALS_FILE"
+
+    # Remove from config (note: config uses [profile name])
+    awk -v profile="[profile $selected]" '
+        BEGIN {in_section=0}
+        $0 == profile {in_section=1; next}
+        /^\[.*\]/ {if (in_section) {in_section=0}; if (!in_section) print $0; next}
+        { if (!in_section) print }
+    ' "$AWS_CONFIG_FILE" > "${AWS_CONFIG_FILE}.tmp" && mv "${AWS_CONFIG_FILE}.tmp" "$AWS_CONFIG_FILE"
+
+    echo "✅ Profile '$selected' removed."
+}
+
 
 
 function switch_profile() {
@@ -128,12 +197,20 @@ case "$1" in
     add)
         add_profile
         ;;
-    "" )
+    ls|list)
+        list_profiles
+        ;;
+    rm|remove)
+        remove_profile
+        ;;
+    --help|-h)
+        show_help
+        ;;
+    "")
         switch_profile
         ;;
     *)
-        echo "Usage:"
-        echo "  awsctx add        # Add a new AWS profile"
-        echo "  awsctx            # Switch default profile using fzf"
+        echo "❌ Unknown command: $1"
+        show_help
         ;;
 esac
