@@ -38,3 +38,102 @@ function add_profile() {
 
     echo "✅ Profile '$profile' added successfully."
 }
+
+
+function switch_profile() {
+    # Check if fzf not installed
+    if ! command -v fzf &>/dev/null; then
+        echo "❌ fzf is not installed. Please run: sudo apt update -y && sudo apt install fzf -y"
+        exit 1
+    fi
+
+    # List profiles excluding [default]
+    profiles=$(grep '^\[' "$AWS_CREDENTIALS_FILE" | grep -v '\[default\]' | sed 's/^\[\(.*\)\]$/\1/')
+
+    selected=$(echo "$profiles" | fzf --prompt="Select AWS profile to use: ")
+
+    # Check if nothing is selected
+    if [ -z "$selected" ]; then
+        echo "❌ No profile selected."
+        exit 1
+    fi
+
+    # Extract the credentials
+    access_key=$(awk -v profile="[$selected]" '
+        $0 == profile {found=1; next}
+        /^\[/ {found=0}
+        found && $1 == "aws_access_key_id" {print $3}
+    ' "$AWS_CREDENTIALS_FILE")
+
+    secret_key=$(awk -v profile="[$selected]" '
+        $0 == profile {found=1; next}
+        /^\[/ {found=0}
+        found && $1 == "aws_secret_access_key" {print $3}
+    ' "$AWS_CREDENTIALS_FILE")
+
+    region=$(awk -v profile="[profile $selected]" '
+        $0 == profile {found=1; next}
+        /^\[profile/ {found=0}
+        found && $1 == "region" {print $3}
+    ' "$AWS_CONFIG_FILE")
+
+    # Check if both access_key and secret_key are found 
+    # no need to check region as it is optional
+    if [[ -z $access_key || -z $secret_key ]]; then
+        echo "❌ Could not extract complete data for profile '$selected'."
+        exit 1
+    fi
+
+# Remove existing [default] section from credential file then add the new one
+    # Remove existing [default] section from credentials
+    awk '
+        BEGIN {in_section=0}
+        /^\[default\]/ {in_section=1; next}
+        /^\[.*\]/ {if (in_section) in_section=0}
+        { if (!in_section) print }
+    ' "$AWS_CREDENTIALS_FILE" > "${AWS_CREDENTIALS_FILE}.tmp" && mv "${AWS_CREDENTIALS_FILE}.tmp" "$AWS_CREDENTIALS_FILE"
+
+    # Append new default
+    {
+        echo "[default]"
+        echo "aws_access_key_id = $access_key"
+        echo "aws_secret_access_key = $secret_key"
+        echo ""
+    } >> "$AWS_CREDENTIALS_FILE"
+
+# Remove existing [default] section from config file then add the new one
+    # Remove existing [default] section from config
+    awk '
+        BEGIN {in_section=0}
+        /^\[default\]/ {in_section=1; next}
+        /^\[.*\]/ {if (in_section) in_section=0}
+        { if (!in_section) print }
+    ' "$AWS_CONFIG_FILE" > "${AWS_CONFIG_FILE}.tmp" && mv "${AWS_CONFIG_FILE}.tmp" "$AWS_CONFIG_FILE"
+
+    # Append new default
+    {
+        echo "[default]"
+        if [ -n "$region" ]; then
+            echo "region = $region"
+        fi
+        # echo "region = $region"
+        echo ""
+    } >> "$AWS_CONFIG_FILE"
+
+    echo "✅ Now using '$selected' as your default AWS profile."
+}
+
+# Main
+case "$1" in
+    add)
+        add_profile
+        ;;
+    "" )
+        switch_profile
+        ;;
+    *)
+        echo "Usage:"
+        echo "  awsctx add        # Add a new AWS profile"
+        echo "  awsctx            # Switch default profile using fzf"
+        ;;
+esac
