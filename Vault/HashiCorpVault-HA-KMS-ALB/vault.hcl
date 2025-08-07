@@ -23,7 +23,7 @@ listener "tcp" {
 
 seal "awskms" {
   region     = "ap-south-1"
-  kms_key_id = "f7940434-6cdb-4f1c-b04a-7ad91c3cfac3"
+  kms_key_id = "f79404*******1c3cfac3"
 }
 
 cluster_addr = "http://172.31.1.110:8201"

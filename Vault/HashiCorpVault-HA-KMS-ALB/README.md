@@ -18,7 +18,7 @@ name it
 ```
 aws kms create-alias \
   --alias-name alias/vault-unseal-key \
-  --target-key-id f7940434-6cdb-4f1c-b04a-7ad91c3cfac3
+  --target-key-id f79404************91c3cfac3
 ```
 
 ### 3. Create IAM Policy & Role To Use This KMS Key
@@ -187,7 +187,7 @@ HA Enabled               true
 ### 11. Initiate Cluster
 - Only on master node execute
 `vault  operator  init`
-- note down the Root Token `hvs.CP7zIsX4Lb0C9iRAO5PLhDrl`
+- note down the Root Token `hvs.CP*****5PLhDrl`
 ### 12. Check
 - on master node 
 `vault operator raft list-peers`
@@ -202,7 +202,7 @@ Sealed                   false
 Raft Applied Index       37
 ```
 - check follower nodes
-	- `vault login hvs.CP7zIsX4Lb0C9iRAO5PLhDrl`
+	- `vault login hvs.CP*********LhDrl`
 	- ``vault operator raft list-peers``
 
 ### 13. Check new master selection
@@ -233,4 +233,4 @@ Code: 403. Errors:
 * permission denied
 ```
 Then you must login again:
-`vault login hvs.CP7zIsX4Lb0C9iRAO5PLhDrl`
+`vault login hvs.*********O5PLhDrl`

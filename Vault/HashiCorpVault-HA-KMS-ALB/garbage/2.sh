@@ -27,7 +27,7 @@ vault operator init
 
 vault operator raft list-peers
 
-export VAULT_TOKEN="hvs.ZbniBtipBW9ukURa58El0wqd"
+# export VAULT_TOKEN="zzzzzzzzzzzzzhl0wqd"
 
 
 vault operator raft join http://172.31.9.92:8200
