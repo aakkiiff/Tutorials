@@ -81,7 +81,10 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
 EOF
 ```
-`sudo sysctl --system`
+
+```
+sudo sysctl --system
+```
 
 ### 3.3 Install containerd (Master & Worker Node).
 Description: Install the container runtime (containerd) for managing containers.
