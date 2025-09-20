@@ -7,6 +7,8 @@ pipeline {
                 // sh 'trivy image --exit-code 1 --severity LOW,MEDIUM,HIGH,CRITICAL node:20'
                 // sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL node:20'
                 sh 'trivy image node:20'
+                // sh 'trivy image --format json --output trivy-report.json --no-progress node:20'
+
 
             }
         }
