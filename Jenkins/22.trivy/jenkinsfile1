@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                // sh 'trivy image --exit-code 1 --severity LOW,MEDIUM,HIGH,CRITICAL node:20'
+                // sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL node:20'
+                sh 'trivy image node:20'
+
+            }
+        }
+    }
+}
