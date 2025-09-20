@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    environment {
+        SONAR_SCANNER_VERSION = '7.2.0.5079'
+        SONAR_SCANNER_HOME = "${HOME}/.sonar/sonar-scanner-${SONAR_SCANNER_VERSION}-linux-x64"
+        PATH = "${SONAR_SCANNER_HOME}/bin:${PATH}"
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                git branch: 'main', url: 'https://github.com/aakkiiff/sonar-test'
+                sh '''
+                    sonar-scanner \
+                      -Dsonar.projectKey=test2 \
+                      -Dsonar.sources=. \
+                      -Dsonar.host.url=http://localhost:9000 \
+                      -Dsonar.token=sqp_935d0bd7456ef6d4a9818df7bfb66338c81440c8
+                '''
+            }
+        }
+    }
+}
