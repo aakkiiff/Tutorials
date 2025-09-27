@@ -1,0 +1,13 @@
+
+services:
+  redis-cache:
+    image: redis:8.2
+    container_name: redis-cache
+    restart: always
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./users.acl:/usr/local/etc/redis/users.acl:ro 

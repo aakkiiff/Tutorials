@@ -1,0 +1,3 @@
+user default off
+user app_user on >sxbab36de6d04e2e67b0e ~* +@all
+user readonly on >anotherpassword ~* +@read
