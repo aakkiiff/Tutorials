@@ -1,0 +1,13 @@
+region               = "ap-south-1"
+services             = ["service-1", "service-2"]
+vpc_id               = "vpc-025830bf85f3d7477"
+base_ami_id          = "ami-02d26659fd82cf299"
+instance_type        = "t3.micro"
+kaypair              = "test"
+subnet_id            = "subnet-0ddfab7a2a0bdec4a"
+volume_size          = 30
+volume_type          = "gp3"
+asg_min_size         = 1
+asg_max_size         = 3
+asg_desired_capacity = 1
+instance_profile_name = ""
