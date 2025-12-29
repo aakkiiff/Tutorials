@@ -144,7 +144,7 @@ Depending on the os version, you might see this error
 ```
 [ERROR FileExisting-conntrack]: conntrack not found in system path
 ```
-Solution:
+Solution: install conntrack on all the master and worker nodes
 ```
 sudo apt install -y conntrack
 ```
