@@ -138,6 +138,17 @@ Description: Initialize the Kubernetes control-plane on the master server.
 
 - 172.17.17.200 this is your k8s Master Server IP
 - 192.168.0.0/16 this is Pod CIDR if you change this you have to udpate CNI Network Configuration operator file also.
+
+## issue!
+Depending on the os version, you might see this error
+```
+[ERROR FileExisting-conntrack]: conntrack not found in system path
+```
+Solution:
+```
+sudo apt install -y conntrack
+```
+
 ## 5. Configuring Kubectl (Master Node).
 Description: This step focuses on creating the kubeconfig file, a crucial configuration file for using the `kubectl` command on the master node. Create kubeconfig file to use kubectl command 
 
