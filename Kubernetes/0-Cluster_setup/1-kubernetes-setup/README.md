@@ -31,10 +31,10 @@ network:
     ens33:
       dhcp4: no
       addresses:
-        - 192.168.10.245/24
+        - 172.17.17.200/24
       routes:
         - to: default
-          via: 192.168.10.1
+          via: 172.17.17.1
       nameservers:
           addresses: [8.8.8.8, 8.8.4.4]
 ```
