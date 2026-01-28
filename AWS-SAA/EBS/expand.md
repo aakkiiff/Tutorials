@@ -24,7 +24,7 @@ NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 loop0          7:0    0 27.2M  1 loop /snap/amazon-ssm-agent/11320
 loop1          7:1    0 73.9M  1 loop /snap/core22/1981
 loop2          7:2    0 50.9M  1 loop /snap/snapd/24505
-nvme0n1      259:0    0   *12G*  0 disk <<<----this 
+nvme0n1      259:0    0   *8G*  0 disk <<<----this 
 ├─nvme0n1p1  259:2    0    7G  0 part /
 ├─nvme0n1p14 259:3    0    4M  0 part 
 ├─nvme0n1p15 259:4    0  106M  0 part /boot/efi
