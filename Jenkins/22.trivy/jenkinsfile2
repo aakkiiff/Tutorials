@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Trivy Scan') {
+            steps {
+                sh 'trivy image --severity HIGH,CRITICAL nginx:1.25 > report'
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'report', fingerprint: true
+        }
+    }
+}
