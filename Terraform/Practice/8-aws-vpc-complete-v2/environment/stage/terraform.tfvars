@@ -1,0 +1,8 @@
+aws_region            = "ap-southeast-1"
+vpc_cidr_block        = "10.0.0.0/17"
+subnet_public-1_cidr  = "10.0.32.0/24"
+subnet_public-2_cidr  = "10.0.48.0/24"
+subnet_private-1_cidr = "10.0.0.0/24"
+subnet_private-2_cidr = "10.0.16.0/24"
+cluster_name          = "cluster-stage-v2"
+created_by            = "piit-stage"

@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/aakkiiff/test.git'
+                }
+            }
+
+        stage('Terraform Apply') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'aws', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                sh 'terraform init'
+                sh 'terraform apply -auto-approve'
+                }
+            }
+        }
+        }
+
+}
