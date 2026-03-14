@@ -1,0 +1,1 @@
+In Ansible, gather_facts: true collects system information (called facts) about the target host before running tasks. These facts are stored in variables like ansible_hostname, ansible_os_family, ansible_ip, etc.

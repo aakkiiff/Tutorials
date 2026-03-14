@@ -1,0 +1,36 @@
+---
+- hosts: deb
+  become: true
+  gather_facts: true
+  tasks:
+    - debug:
+        var: ansible_os_family
+    - name: Install nginx on Ubuntu
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: yes
+    - name: Start and enable nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+
+- hosts: redhat
+  become: true
+  gather_facts: true
+  tasks:
+    - debug:
+        var: ansible_os_family
+
+    - name: Install nginx on Amazon Linux 2
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+
+    - name: Start and enable nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: yes

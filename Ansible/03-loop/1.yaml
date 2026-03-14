@@ -1,0 +1,16 @@
+---
+- hosts: test
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Install security updates
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: absent
+        update_cache: yes
+      loop:
+        - apache2
+        - nginx
+      ignore_errors: yes
+

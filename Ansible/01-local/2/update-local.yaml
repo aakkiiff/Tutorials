@@ -1,0 +1,15 @@
+- name: Update system
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Run apt update
+      apt:
+        update_cache: yes
+        upgrade: no
+        cache_valid_time: 3600
+
+
+    - name: Install apache httpd
+      apt:
+        name: apache2
+        state: present

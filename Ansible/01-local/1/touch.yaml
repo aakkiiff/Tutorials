@@ -1,0 +1,28 @@
+# https://docs.ansible.com/projects/ansible/2.9/modules/list_of_files_modules.html
+---
+- name: Create a new directory
+  hosts: localhost
+  tasks:
+    - name: Create directory
+      ansible.builtin.file:
+        path: ./new_directory
+        state: directory
+        mode: '0777'
+        # state: absent
+
+- name: Create a new file
+  hosts: localhost
+  tasks:
+    - name: Touch a new file
+      ansible.builtin.file:
+        path: ./new_directory/newfile.txt
+        state: touch
+        # state: absent
+
+- name: Create a new file with content
+  hosts: localhost
+  tasks:
+    - name: Create and add content to file
+      ansible.builtin.copy:
+        content: "This is the content added to newfile2.txt by Ansible.\n"
+        dest: ./new_directory/newfile.txt

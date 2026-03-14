@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Check if docker is installed
+      command: docker --version
+      register: output
+      ignore_errors: yes    
+    - debug:
+        var: output
+    - name: Install docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+      when: output.failed == true
+        

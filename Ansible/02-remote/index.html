@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Demo Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset some defaults */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6C5B7B, #C06C84);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        header {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #f0e6f6;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #FFD700;
+        }
+
+        .card p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+            width: 100%;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #FFD700;
+            color: #6C5B7B;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #FFB800;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Demo</h1>
+        <p>A beautiful interactive HTML page example 🌸</p>
+    </header>
+
+    <div class="card-container">
+        <div class="card">
+            <h2>Card One</h2>
+            <p>This is an example card. Hover over me to see a smooth effect!</p>
+            <button onclick="alert('You clicked Card One!')">Click Me</button>
+        </div>
+
+        <div class="card">
+            <h2>Card Two</h2>
+            <p>Beautiful background, smooth hover, and interactive button included.</p>
+            <button onclick="alert('You clicked Card Two!')">Click Me</button>
+        </div>
+
+        <div class="card">
+            <h2>Card Three</h2>
+            <p>Responsive grid layout so it looks great on any screen size.</p>
+            <button onclick="alert('You clicked Card Three!')">Click Me</button>
+        </div>
+    </div>
+
+    <footer>
+        Made with ❤️ by <a href="#">Your Name</a>
+    </footer>
+
+</body>
+</html>

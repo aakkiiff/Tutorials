@@ -1,0 +1,12 @@
+---
+- hosts: test
+  become: true
+  gather_facts: false
+  tasks:
+
+    - name: Install apache httpd
+      apt:
+        name: apache2
+        state: present
+        # some modules require cache update before installation
+        update_cache: yes
