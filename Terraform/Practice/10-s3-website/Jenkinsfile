@@ -6,7 +6,11 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/aakkiiff/test.git'
+                withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'passwd', usernameVariable: 'username')]) {
+
+                git branch: 'main', url: "https://$username:$passwd@github.com/aakkiiff/jj.git"
+   
+                }
                 }
             }
 
