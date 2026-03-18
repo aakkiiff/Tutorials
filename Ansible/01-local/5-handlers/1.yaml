@@ -1,0 +1,15 @@
+- name: Update system
+  hosts: localhost
+  # become: yes
+  tasks:
+    - name: Update nginx config
+      copy:
+        src: nginx.conf
+        dest: copied.conf
+      notify: test
+
+  handlers:
+    - name: test
+      file: 
+        path: test.txt
+        state: touch
